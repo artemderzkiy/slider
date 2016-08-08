@@ -1,0 +1,61 @@
+ body { 
+ text-align: center; }
+ #sliderWindow 
+ {
+position: relative;
+width: 300px;
+height: 250px;
+margin: 0 auto;
+padding: 0;
+overflow: hidden;
+border: solid grey 2px;
+ }
+
+ #buttonRight
+ {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  right:12px;
+  top:42%;
+  cursor: pointer;
+ }
+ #buttonLeft
+ {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  left: 12px;
+  top:42%;
+  cursor: pointer;
+ }
+
+ #bullet {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  margin: 0 auto; 
+}
+.slideText {
+  color: black;
+}
+
+.bulletitem {
+  opacity: 0.5;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;  
+  border-radius: 50%;
+  background-color: #FF0000;
+  cursor: pointer;
+}
+.bulletitem:hover
+{
+  background-color: #00FF00;
+} 
+.text {
+  position: absolute;    
+  font-size: 48px;
+  color: #0000FF;
+}
