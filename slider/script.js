@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var currentPos=0;
-  var slideWidth=300;
+  var slideWidth=600;
   var createSliderWindow=$("<div id='sliderWindow'></div>");
   var createSlide=$("<div id='slide'></div>");
   var createSlide=$("<div id='slide'></div>");
@@ -55,11 +55,11 @@ $(document).ready(function() {
 
 
     $.each( imageJSON, function( key, val ) {
-      var img="<b class='text'>"+val.slideText+"</b><a href='"+ val.url +"'><img src='" + val.image + "' alt='' width=300></a>";
-     
+      var img="<b class='text'>"+val.slideText+"</b><a href='"+ val.url +"'><img src='" + val.image + "' alt='' width=600></a>";
+      
       var bullet="<div class='bulletitem' id='" + val.order + "'></div>";
-    
-    
+      
+      
       
       
       $("#slide").append(img);      
@@ -82,48 +82,54 @@ $(document).ready(function() {
   {
     $("#slideWrap").animate({"marginLeft": slideWidth*(-currentPos)});
 
+    
+
+    
+   // console.log(id);
+   // ($(this).attr('id')).addClass("active");
+
+ }
+
+ function changePos(flag) {
+  if (currentPos==numberSlides-1 &&!flag)
+  {
+    currentPos=0;
   }
-
-  function changePos(flag) {
-    if (currentPos==numberSlides-1 &&!flag)
-    {
-      currentPos=0;
-    }
-    else if (!flag)
-    {
-      currentPos++;
-    }
-    if (currentPos==0 && flag)
-    {
-      currentPos=numberSlides-1;
-    }
-    else if (flag)
-    {
-      currentPos--;
-    }
-    moveSlide();
+  else if (!flag)
+  {
+    currentPos++;
   }
+  if (currentPos==0 && flag)
+  {
+    currentPos=numberSlides-1;
+  }
+  else if (flag)
+  {
+    currentPos--;
+  }
+  moveSlide();
+}
 
 
-  $('.bulletitem').on('click', function() {
-    var id = ($(this).attr('id'));
-    moveSlideB(id-1);
-  });
-  $("#buttonLeft").click(function () {
-   changePos(true);
- });
-  $("#buttonRight").click(function () {
-   changePos(false);
- });
-  
-  startTimer();
-  slider.on('mouseenter mouseleave', function(e){ 
-    var onMouEnt = (e.type === 'mouseenter') ?  
-    clearInterval(intervalID) : startTimer();               
-  });
-  function startTimer() {
-    intervalID = setInterval(function() { changePos(false); }, 2000);
-    return intervalID;
-  };
+$('.bulletitem').on('click', function() {
+  var id = ($(this).attr('id'));
+  moveSlideB(id-1);
+});
+$("#buttonLeft").click(function () {
+ changePos(true);
+});
+$("#buttonRight").click(function () {
+ changePos(false);
+});
+
+startTimer();
+slider.on('mouseenter mouseleave', function(e){ 
+  var onMouEnt = (e.type === 'mouseenter') ?  
+  clearInterval(intervalID) : startTimer();               
+});
+function startTimer() {
+  intervalID = setInterval(function() { changePos(false); }, 2000);
+  return intervalID;
+};
 
 });

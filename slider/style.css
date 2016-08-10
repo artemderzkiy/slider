@@ -3,8 +3,8 @@
  #sliderWindow 
  {
 position: relative;
-width: 300px;
-height: 250px;
+width: 600px;
+height: 400px;
 margin: 0 auto;
 padding: 0;
 overflow: hidden;
@@ -57,5 +57,12 @@ border: solid grey 2px;
 .text {
   position: absolute;    
   font-size: 48px;
-  color: #0000FF;
+  color: #FFFFFF;
+  background: #010203;
+  opacity: 0.5;
+  width: 600px;
 }
+.active
+{
+  background-color: #CCFFCC;
+} 
